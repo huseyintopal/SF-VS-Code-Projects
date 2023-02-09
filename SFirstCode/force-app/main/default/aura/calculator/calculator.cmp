@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    
+    <!--- 2 input xnumber ynumber result  button > js_fuction -->
+    
+    <aura:attribute name="xnumber" type="decimal"  />
+    <aura:attribute name="ynumber" type="decimal"  />
+    <aura:attribute name="result" type="decimal"   />
+    
+    <lightning:input type="number" name="xnumberinput" 
+                     label="Enter the X Value" value="{!v.xnumber}"  
+                     formatter="decimal" step="0.01"/>
+    
+    <lightning:input type="number" name="ynumberinput" 
+                     label="Enter the Y Value" value="{!v.ynumber}"  
+                     formatter="decimal" step="0.01"/>
+    <br /><br />
+    <lightning:button label="+" title="+" onclick="{! c.sum }"/>  
+    <lightning:button label="-" title="-" onclick="{! c.sub }"/> 
+    <lightning:button label="*" title="*" onclick="{! c.mul }"/> 
+    <lightning:button label="/" title="/" onclick="{! c.div }"/> 
+    
+    
+    <br /> <br />
+    
+    
+    Result of {!v.xnumber} + {!v.ynumber}  = {!v.result}
+    
+    
+   
+
+</aura:component>
