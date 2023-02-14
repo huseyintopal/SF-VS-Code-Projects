@@ -1,0 +1,14 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-13-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  title={cardText.title}>
+        <lightning-button onclick={titleChangeHandler} label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">{cardText.body}</p>
+        <p slot="footer">{cardText.footer}</p>
+    </lightning-card>
+</template>
