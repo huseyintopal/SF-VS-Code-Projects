@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="LWC1" icon-name="custom:custom15">
+        <div class="slds-m-around_medium">
+        <lightning-input type="text" label="Enter a text" onchange={changeHandler} placeholder="Enter a text"></lightning-input>
+        <br/>
+        <h1>Hello {name}</h1>
+
+        </div>
+        <div class="slds-m-arund_medium">
+            <lightning-button variant="destructive-text" label="Destructive Text" title="Destructive action with a lighter look" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+    </lightning-card>
+    
+</template>

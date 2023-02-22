@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-14-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="LWC Calculator" icon-name="standard:account">
+
+        <lightning-button-icon  icon-name="utility:add" variant="border-filled" alternative-text="Show More" slot="actions" onclick="{sum}"></lightning-button-icon>
+        <lightning-button-icon  icon-name="utility:dash" variant="border-filled" alternative-text="Show More" slot="actions" onclick="{sub}"></lightning-button-icon>
+        <lightning-button-icon  icon-name="utility:close" variant="border-filled" alternative-text="Show More" slot="actions" onclick="{multiply}"></lightning-button-icon>
+        <lightning-button-icon  icon-name="utility:italic" variant="border-filled" alternative-text="Show More" slot="actions" onclick="{division}"></lightning-button-icon>
+
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="number" name="number1" label="Enter a number" value={num1} formatter="decimal" step="0.01" onchange{xCh}
+
+        </p>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+    
+</template>

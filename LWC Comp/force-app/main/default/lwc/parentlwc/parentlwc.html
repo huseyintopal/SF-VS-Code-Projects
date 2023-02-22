@@ -2,14 +2,16 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-14-2023
+  @last modified on  : 02-16-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
-    <lightning-card  variant="Narrow"  title={titletext} icon-name="standard:account">
+    <lightning-card  variant="Narrow"  title="Parent" icon-name="standard:account">
         <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
-        <p class="slds-p-horizontal_small">Child Card Body Narrow (custom component)</p>
-        <p slot="footer">Child Card Footer</p>
+        <p class="slds-p-horizontal_small">Card Body Narrow (custom component)</p>
+        <p slot="footer">Card Footer</p>
     </lightning-card>
-    
+    <c-childlwc titletext="title from parent" footertext="footer from parent"></c-childlwc>
+
+
 </template>
