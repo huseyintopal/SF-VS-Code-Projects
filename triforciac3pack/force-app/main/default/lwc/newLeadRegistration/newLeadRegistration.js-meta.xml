@@ -7,7 +7,7 @@
         <target>lightningCommunity__Default</target>
     </targets>
 
-    <targetConfigs>
+    <!-- <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
             <property name="utm_source" type="String" />
             <property name="utm_medium" type="String" />
@@ -17,10 +17,8 @@
             <property name="utm_content" type="String" />
             <property name="utm_referer" type="String" />
 
-
-
         </targetConfig>
-    </targetConfigs>
+    </targetConfigs> -->
 
 
 
