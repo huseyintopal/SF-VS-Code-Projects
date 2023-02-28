@@ -7,9 +7,10 @@ import COMPANY from '@salesforce/schema/Lead.Company';
 import INFO from '@salesforce/schema/Lead.Info_Session_Date_Time__c';
 import INTERESTED from '@salesforce/schema/Lead.Interested_Path__c';
 import retrieve from '@salesforce/apex/UIcourseController.retrieve';
+//retrieve icin wire veya imperative method kullanilabilir burda imperative kullandik!
 export default class NewLeadRegistration extends LightningElement {
  // Expose a field to make it available in the template
- fields = [
+fields = [
 NAME,
 EMAIL,
 PHONE,
@@ -17,16 +18,18 @@ ADDRESS,
 COMPANY,
 INFO,
 INTERESTED
- ];
- name=NAME;
- email=EMAIL;
- phone=PHONE;
- address=ADDRESS;
- company=COMPANY;
- info=INFO;
- interested=INTERESTED;
+];
+name=NAME;
+email=EMAIL;
+phone=PHONE;
+address=ADDRESS;
+company=COMPANY;
+info=INFO;
+interested=INTERESTED;
+
 isLeadSent=false;
 loading=false;
+
 value = 'inProgress';
 companyName='xx';
 /*
@@ -37,29 +40,33 @@ options = [
 ];
 */
 @track options = [];
+
 startDate;
  // Flexipage provides recordId and objectApiName
- @api recordId;
- @api objectApiName='Lead';
- clickhandler(){
+@api recordId;
+@api objectApiName='Lead';
+
+clickhandler(){
   this.loading=true;
 setTimeout(() => {
   this.isLeadSent=true;
   this.loading=false;
 }, 3000);
- }
- handleChange(event) {
-     this.value = event.detail.value;
+}
+
+handleChange(event) {
+    this.value = event.detail.value;
+     //array filter array forEach ve array map iyi ogrenmek lazim
      // console.log(JSON.parse(JSON.stringify(event.detail)));
     
-     let selectedOption=this.options.filter(option=>option.value==event.detail.value);
-     
-    console.log(JSON.parse(JSON.stringify(selectedOption)));
-     this.companyName=selectedOption[0].label;
-     this.startDate = selectedOption[0].StartDate;
- }
- 
- connectedCallback(){
+    let selectedOption=this.options.filter(option=>option.value==event.detail.value);
+    
+    //console.log(JSON.parse(JSON.stringify(selectedOption)));
+    this.companyName=selectedOption[0].label;
+    this.startDate = selectedOption[0].StartDate;
+}
+
+connectedCallback(){
   retrieve()
   .then(multicourse=>{
     multicourse.forEach(course => {
@@ -78,5 +85,5 @@ setTimeout(() => {
   .catch(err=>{
     console.log(err);
   });
- }
+}
 }
