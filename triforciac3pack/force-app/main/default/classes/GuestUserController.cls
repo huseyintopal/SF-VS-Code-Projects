@@ -13,12 +13,12 @@ public with sharing class GuestUserController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
-        retrun singleCampaign;
+        return singleCampaign;
     }
 
 
     @AuraEnabled
-    public static string createAd(Ad_c singleAd){
+    public static string createAd(Ad__c singleAd){
         try {
             insert singleAd;
             
@@ -39,9 +39,6 @@ public with sharing class GuestUserController {
         }
         return cmember.id;
     }
-
-
-
 
 
 

@@ -49,6 +49,8 @@ options = [
 */
 @track options = [];
 
+@track retCampaign = [];
+
 startDate;
  // Flexipage provides recordId and objectApiName
 @api recordId; //LEad Id olmasi beklenen yer
@@ -104,5 +106,22 @@ connectedCallback(){
   .catch(err=>{
     console.log(err);
   });
+
+  retrieveCampaign()
+  .then()
+  .catch();
+
+
+
+
+
+  createAd()
+  .then()
+  .catch();
+
+
+
+} //connectedcallBack end
 }
-}
+
+catc
