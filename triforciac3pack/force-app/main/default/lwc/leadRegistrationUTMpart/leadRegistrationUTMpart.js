@@ -9,6 +9,11 @@ import INTERESTED from '@salesforce/schema/Lead.Interested_Path__c';
 
 import retrieveCourse from '@salesforce/apex/GuestUserController.retrieveCourse';
 
+import retrieveCampaign from '@salesforce/apex/GuestUserController.retrieveCampaign';
+import createAd from '@salesforce/apex/GuestUserController.createAd';
+import createCampaignMember from '@salesforce/apex/GuestUserController.createCampaignMember';
+
+
 //retrieve icin wire veya imperative method kullanilabilir burda imperative kullandik!
 
 export default class NewLeadRegistration extends LightningElement {
