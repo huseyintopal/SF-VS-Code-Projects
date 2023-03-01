@@ -1,0 +1,26 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Lead Registration Form" icon-name="standard:lead">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">
+
+            <lightning-input type="text" label="First Name" value={singleLead.FirstName}  name="FirstName" required onchange={inputChangeHand}  ></lightning-input>
+            <lightning-input type="text" label="Last Name" value={singleLead.LastName} name="LastName" required onchange={inputChangeHand} ></lightning-input>
+            <lightning-input type="text" label="Phone" value={singleLead.Phone} name="Phone" required onchange={inputChangeHand} ></lightning-input>
+            <lightning-input type="text" label="Email" value={singleLead.Email} name="Email" required onchange={inputChangeHand} ></lightning-input>
+            <lightning-input type="text" label="Country" value={singleLead.Country} name="Country" required onchange={inputChangeHand} ></lightning-input>
+            <lightning-input type="datetime" label="Info Session Date/Time" name="Info_Session_Date_Time__c " value={singleLead.Info_Session_Date_Time__c} required onchange={inputChangeHand} ></lightning-input>
+
+
+
+
+
+
+
+
+
+        </p>
+
+
+        <p slot="footer">Welcome Teamon Project</p>
+    </lightning-card>
+</template>
