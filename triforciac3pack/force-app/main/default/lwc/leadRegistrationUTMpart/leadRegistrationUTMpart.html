@@ -1,0 +1,74 @@
+<template>
+
+    <template if:false={isLeadSent}>
+  
+        <lightning-card  variant="Narrow"  title="Course Registration" icon-name="standard:lead">
+          <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+          
+        
+          <div class="slds-p-horizontal_small">
+
+            Reklam Verileri LWC : <br/>
+
+            {utm_source} <br/>
+            {utm_medium} <br/>
+            {utm_campaign} <br/>
+            {utm_id} <br/>
+            {utm_term} <br/>
+            {utm_content} <br/>
+            {utm_referer} <br/>
+
+
+
+
+
+
+
+
+            <lightning-record-edit-form
+            object-api-name={objectApiName}
+            record-id={recordId}
+            
+        >
+        <lightning-input-field field-name={name}> </lightning-input-field>
+        <lightning-input-field field-name={email}> </lightning-input-field>
+        <lightning-input-field field-name={phone}> </lightning-input-field>
+        <lightning-input-field field-name={address}> </lightning-input-field>
+        
+        <lightning-input-field field-name={info}> </lightning-input-field>
+        <div class="slds-hidden">
+          <lightning-input-field field-name={company} value={companyName}> </lightning-input-field>
+          <lightning-input-field field-name={interested} value={value}> </lightning-input-field>
+        </div>
+        <lightning-combobox
+        name="progress"
+        label="Status"
+        value={value}
+        placeholder="Select Progress"
+        options={options}
+        onchange={handleChange} ></lightning-combobox>
+            <div class="slds-var-m-top_medium">
+                <lightning-button variant="brand" type="submit" label="Save" onclick={clickhandler}>
+                </lightning-button>
+            </div>
+        </lightning-record-edit-form>
+          </div>
+          <p slot="footer"> course id : {value} course name : {companyName} Start Date : {startDate}</p>
+      </lightning-card>
+  </template>
+  
+  <template if:true={isLeadSent}>
+    <lightning-card  variant="Narrow"  title="Thank you" icon-name="standard:account">
+      <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+      <p class="slds-p-horizontal_small">Thank you for regitration. One of our Representative will contact with you as soon as possible</p>
+      <p slot="footer">Card Footer</p>
+    </lightning-card>
+  </template>
+  
+  <template if:true={loading}>
+    <div class="exampleHolder">
+      <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+  </div>
+  </template>
+  
+  </template>
