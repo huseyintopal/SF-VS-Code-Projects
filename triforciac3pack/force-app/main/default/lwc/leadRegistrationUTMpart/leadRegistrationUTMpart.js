@@ -6,8 +6,11 @@ import ADDRESS from '@salesforce/schema/Lead.Address';
 import COMPANY from '@salesforce/schema/Lead.Company';
 import INFO from '@salesforce/schema/Lead.Info_Session_Date_Time__c';
 import INTERESTED from '@salesforce/schema/Lead.Interested_Path__c';
-import retrieve from '@salesforce/apex/UIcourseController.retrieve';
+
+import retrieveCourse from '@salesforce/apex/GuestUserController.retrieveCourse';
+
 //retrieve icin wire veya imperative method kullanilabilir burda imperative kullandik!
+
 export default class NewLeadRegistration extends LightningElement {
  // Expose a field to make it available in the template
 fields = [
@@ -43,7 +46,7 @@ options = [
 
 startDate;
  // Flexipage provides recordId and objectApiName
-@api recordId;
+@api recordId; //LEad Id olmasi beklenen yer
 @api objectApiName='Lead';
 
 //api decaratorler
@@ -78,7 +81,7 @@ handleChange(event) {
 }
 
 connectedCallback(){
-  retrieve()
+  retrieveCourse()
   .then(multicourse=>{
     multicourse.forEach(course => {
       
