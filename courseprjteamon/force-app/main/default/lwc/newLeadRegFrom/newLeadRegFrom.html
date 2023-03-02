@@ -1,0 +1,73 @@
+<template>
+    <template if:false={isLeadSent}>
+
+
+    <lightning-card  variant="Narrow"  title="Course Registration Form" icon-name="standard:lead">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        
+        
+        
+        <div class="slds-p-horizontal_small">Card Body Narrow (custom component)
+
+            <lightning-record-edit-form
+            object-api-name={objectApiName}
+            record-id={recordId}
+        >
+            <lightning-input-field field-name={name}> </lightning-input-field>
+            <lightning-input-field field-name={email}> </lightning-input-field>
+            <lightning-input-field field-name={phone}> </lightning-input-field>
+            <lightning-input-field field-name={address}> </lightning-input-field>
+            
+            <lightning-input-field field-name={info}> </lightning-input-field>
+        
+
+
+            <div class="slds-hidden">
+                <lightning-input-field field-name={interested} value={value}> </lightning-input-field>
+                <lightning-input-field field-name={company} value={companyName}>  </lightning-input-field>
+            </div>
+            
+
+
+            <lightning-combobox
+            name="progress"
+            label="Interested Path"
+            value={value}
+            placeholder="Select Progress"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+
+
+            <div class="slds-var-m-top_medium">
+                <lightning-button variant="brand" type="submit" label="Save" onclick={clickHandler}>
+                </lightning-button>
+            </div>
+        </lightning-record-edit-form>
+
+
+
+        </div>
+        <p slot="footer">course={companyName} courseId={value} Start Date={label1}</p>
+    </lightning-card>
+
+
+</template>
+<template if:true={isLeadSent}>
+    <lightning-card  variant="Narrow"  title="Thank You" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">Thank you for your registration</p>
+        <p slot="footer">Clarusway</p>
+    </lightning-card>
+
+
+</template>
+
+
+
+
+
+
+
+    
+</template>
