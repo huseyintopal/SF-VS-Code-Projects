@@ -13,6 +13,7 @@ public with sharing class UIcourseController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+        
         return multiCourse;
     }
     
