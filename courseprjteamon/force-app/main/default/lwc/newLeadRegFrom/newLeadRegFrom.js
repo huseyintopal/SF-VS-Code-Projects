@@ -8,7 +8,15 @@ import COMPANY from '@salesforce/schema/Lead.Company';
 import INFO from '@salesforce/schema/Lead.Info_Session_Date_Time__c';
 import INTERESTED from '@salesforce/schema/Lead.Interested_Path__c';
 
-import retrieve from '@salesforce/apex/UIcourseController.retrieve';
+//import retrieve from '@salesforce/apex/UIcourseController.retrieve';
+ 
+import retrieveCourse from '@salesforce/apex/GuestUserController.retrieveCourse';
+
+import createAd from '@salesforce/apex/GuestUserController.createAd';
+import retrieveCampaign from '@salesforce/apex/GuestUserController.retrieveCampaign';
+import createCampaignMember from '@salesforce/apex/GuestUserController.createCampaignMember';
+
+
 
 
 
@@ -46,7 +54,11 @@ export default class NewLeadRegFrom extends LightningElement {
                 { label: 'In Progress', value: 'inProgress' },
                 { label: 'Finished', value: 'finished' },
             ];
+
+            https://coursepackage3-dev-ed.develop.my.site.com/s/info-registration?utm_source=yahoo&utm_medium=tablet&utm_campaign=winterSale&utm_id=8888&utm_term=AWS+devops&utm_content=leadInfo
         }*/
+       
+
         @track options = [];
         
 
@@ -55,8 +67,16 @@ export default class NewLeadRegFrom extends LightningElement {
 //SELECT Id, Name, Cohort__c, End__c, Interview__c, Module__c, Start__c FROM Course__c
         // Flexipage provides recordId and objectApiName
         
-        @api recordId;
+        @api recordId;  //LEad Id burda olmali
         @api objectApiName='Lead';
+
+        @api utm_source;
+        @api utm_medium;
+        @api utm_term;
+        @api utm_content;
+        @api utm_id;
+        @api utm_campaign;
+        @api utm_referer;
 
         clickHandler(){
             setTimeout(() => {
@@ -65,8 +85,40 @@ export default class NewLeadRegFrom extends LightningElement {
         }
 
 
+        connectedCallback(){
+            retrieveCourse()
+            .then(multicourse=>{
+
+                multicourse.forEach(course=>{
+
+                    this.options=[
+
+                        ...this.options,
+
+                        {
+                            label:course.Name,
+                            value:course.Id,
+                            Label1:course.Start__c
+
+                        }
+    
+                    ];
 
 
+                });
+
+
+        
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+        }
+
+
+
+
+        /*
         connectedCallback(){
             retrieve()
             .then(multicourse=>{
@@ -95,7 +147,7 @@ export default class NewLeadRegFrom extends LightningElement {
             .catch(err=>{
                 console.log(err);
             })
-        }
+        }*/
         
         handleChange(event) {
             this.value = event.detail.value;
