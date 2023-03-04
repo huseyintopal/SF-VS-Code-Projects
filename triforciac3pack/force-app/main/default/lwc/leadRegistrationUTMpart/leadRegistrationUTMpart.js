@@ -90,6 +90,7 @@ startDate;
  // Flexipage provides recordId and objectApiName
  @api recordId;  // lead ID 
  @api objectApiName='Lead';
+ 
 @api utm_source;
 @api utm_medium;
 @api utm_campaign;
@@ -97,6 +98,7 @@ startDate;
 @api utm_term;
 @api utm_content;
 @api utm_referer;
+
 campaign;
 advertiseId;
  async clickhandler(){
@@ -136,6 +138,10 @@ await createCampaignMember({
 this.loading=false;
 this.isLeadSent=true;
  }
+
+
+
+
  handleChange(event) {
      this.value = event.detail.value;
      // console.log(JSON.parse(JSON.stringify(event.detail)));
@@ -150,6 +156,19 @@ this.isLeadSent=true;
  }
  
  async connectedCallback(){
+
+this.utm_source=this.utm_source.replace('%20',' ');
+this.utm_medium=this.utm_medium.replace('%20',' ');
+this.utm_campaign=this.utm_campaign.replace('%20',' ');
+this.utm_id=this.utm_id.replace('%20',' ');
+this.utm_term=this.utm_term.replace('%20',' ');
+this.utm_content=this.utm_content.replace('%20',' ');
+this.utm_referer=this.utm_referer.replace('%20',' ')
+
+
+
+
+
   
   retrieveCourse()
   .then(multicourse=>{
