@@ -1,43 +1,73 @@
 import { LightningElement,api,track } from 'lwc';
-import NAME from '@salesforce/schema/Lead.Name';
-import EMAIL from '@salesforce/schema/Lead.Email';
-import PHONE from '@salesforce/schema/Lead.Phone';
-import ADDRESS from '@salesforce/schema/Lead.Address';
-import COMPANY from '@salesforce/schema/Lead.Company';
-import INFO from '@salesforce/schema/Lead.Info_Session_Date_Time__c';
-import INTERESTED from '@salesforce/schema/Lead.Interested_Path__c';
-
 import retrieveCourse from '@salesforce/apex/GuestUserController.retrieveCourse';
-
 import retrieveCampaign from '@salesforce/apex/GuestUserController.retrieveCampaign';
 import createAd from '@salesforce/apex/GuestUserController.createAd';
 import createCampaignMember from '@salesforce/apex/GuestUserController.createCampaignMember';
-
-
-//retrieve icin wire veya imperative method kullanilabilir burda imperative kullandik!
-
+import createLead from '@salesforce/apex/GuestUserController.createLead';
 export default class NewLeadRegistration extends LightningElement {
  // Expose a field to make it available in the template
-fields = [
-NAME,
-EMAIL,
-PHONE,
-ADDRESS,
-COMPANY,
-INFO,
-INTERESTED
-];
-name=NAME;
-email=EMAIL;
-phone=PHONE;
-address=ADDRESS;
-company=COMPANY;
-info=INFO;
-interested=INTERESTED;
-
+// SELECT Id, LastName, FirstName, Ad__c, Interested_Path__c, Info_Session_Date_Time__c, Country, PostalCode, State, City, Street, Company, Email, Phone FROM Lead
+singleLead ={
+  FirstName:'', 
+  LastName:'',
+  Email:'', 
+  Phone:'',  
+  Street:'', 
+  City:'',  
+  State:'', 
+  PostalCode:'', 
+  Country:'', 
+  Interested_Path__c:'', 
+ 
+  Ad__c:'',  
+  Company:''
+  
+}
+infoJSDateTime;
+inputChangeHandler(event){
+  switch(event.target.name) {
+    case 'FirstName':
+      this.singleLead.FirstName=event.target.value;
+      break;
+    case 'LastName':
+      this.singleLead.LastName=event.target.value;      
+      break;
+    case 'Email':
+      this.singleLead.Email=event.target.value;      
+      break;  
+    case 'Phone':
+      this.singleLead.Phone=event.target.value;     
+      break;
+    case 'Street':
+      this.singleLead.Street=event.target.value;     
+      break;
+    case 'City':
+      this.singleLead.City=event.target.value;      
+      break;
+    case 'State':
+      this.singleLead.State=event.target.value;     
+      break;
+    case 'PostalCode':
+      this.singleLead.PostalCode=event.target.value;      
+      break;
+    case 'Country':
+      this.singleLead.Country=event.target.value;
+    break;
+    case 'Interested_Path__c':
+      this.singleLead.Interested_Path__c=event.target.value;
+    break;
+    case 'infoJSDateTime':
+      this.infoJSDateTime=event.target.value;
+    // 2023-03-01T20:26:00.000Z
+      break;
+        default:
+      // code block
+      console.log('default...switch case');
+  }
+  // console.log(this.singleLead);
+}
 isLeadSent=false;
 loading=false;
-
 value = 'inProgress';
 companyName='xx';
 /*
@@ -46,17 +76,20 @@ options = [
   { label: 'In Progress', value: 'inProgress' },
   { label: 'Finished', value: 'finished' },
 ];
+https://triforciacohort3pack-dev-ed.develop.my.site.com/s/info-registration?
+utm_source=google&
+utm_medium=mobile&
+utm_campaign=winterSale&
+utm_id=11111&
+utm_term=aws+kursu&
+utm_content=landingPage&
+utm_referer=clarusway
 */
 @track options = [];
-
-@track retCampaign = [];
-
 startDate;
  // Flexipage provides recordId and objectApiName
-@api recordId; //LEad Id olmasi beklenen yer
-@api objectApiName='Lead';
-
-//api decaratorler
+ @api recordId;  // lead ID 
+ @api objectApiName='Lead';
 @api utm_source;
 @api utm_medium;
 @api utm_campaign;
@@ -64,30 +97,60 @@ startDate;
 @api utm_term;
 @api utm_content;
 @api utm_referer;
-
-
-
-clickhandler(){
+campaign;
+advertiseId;
+ async clickhandler(){
   this.loading=true;
-setTimeout(() => {
-  this.isLeadSent=true;
+  /** 
+   * 
+   *  this.isLeadSent=true;
   this.loading=false;
-}, 3000);
+  */
+await createLead({
+  singleLead:this.singleLead,
+infoDate: this.infoJSDateTime
+})
+.then(leadid=>{
+this.recordId=leadid;
+console.log('lead created successfully');
+})
+.catch(err=>{
+  console.log('Lead Error : '+ err);
+});
+let campMember={
+  LeadId:this.recordId,
+  CampaignId:this.campaign.Id,
+  Status:'Sent'
 }
-
-handleChange(event) {
-    this.value = event.detail.value;
-     //array filter array forEach ve array map iyi ogrenmek lazim
+await createCampaignMember({
+  cm:campMember
+})
+.then(data=>{
+  console.log('campaign member success');
+  console.log(data);
+})
+.catch(err=>{
+  console.log('Error : createCampaignMember');
+  console.log(err);
+});
+this.loading=false;
+this.isLeadSent=true;
+ }
+ handleChange(event) {
+     this.value = event.detail.value;
      // console.log(JSON.parse(JSON.stringify(event.detail)));
     
-    let selectedOption=this.options.filter(option=>option.value==event.detail.value);
-    
-    //console.log(JSON.parse(JSON.stringify(selectedOption)));
-    this.companyName=selectedOption[0].label;
-    this.startDate = selectedOption[0].StartDate;
-}
-
-connectedCallback(){
+     let selectedOption=this.options.filter(option=>option.value==event.detail.value);
+     
+    console.log(JSON.parse(JSON.stringify(selectedOption)));
+     this.companyName=selectedOption[0].label;
+     this.startDate = selectedOption[0].StartDate;  // course start date...
+     this.singleLead.Company=this.companyName;
+     this.singleLead.Interested_Path__c=this.value;  // course id...
+ }
+ 
+ async connectedCallback(){
+  
   retrieveCourse()
   .then(multicourse=>{
     multicourse.forEach(course => {
@@ -106,22 +169,48 @@ connectedCallback(){
   .catch(err=>{
     console.log(err);
   });
-
-  retrieveCampaign()
-  .then()
-  .catch();
-
-
-
-
-
-  createAd()
-  .then()
-  .catch();
-
-
-
-} //connectedcallBack end
+  // utm_id
+  await retrieveCampaign({
+    searchCampaign:this.utm_id
+  })
+  .then(campaign =>{
+    console.log('campaign');
+    console.log(JSON.parse(JSON.stringify(campaign)));
+    this.campaign=campaign;
+    console.log(this.campaign.Id);
+    console.log(this.campaign.Name);
+    console.log('adRecord objesi oluşturuluyor.....');
+             
+  })
+  .catch(err=>{
+    console.log('retrieveCampaign ERR : ');
+    console.log(JSON.parse(JSON.stringify(err)));
+  });
+ 
+ // SELECT Id, Name, Campaign__c, UTM_Campaign__c, UTM_Content__c, UTM_Referer__c, UTM_Medium__c, UTM_Source__c, UTM_Term__c FROM Ad__c
+// Campaign__c,
+// Lead id 
+let adRecord={
+  UTM_Campaign__c:this.utm_campaign, 
+  UTM_Content__c:this.utm_content,
+  UTM_Referer__c:this.utm_referer, 
+  UTM_Medium__c:this.utm_medium, 
+  UTM_Source__c:this.utm_source, 
+  UTM_Term__c:this.utm_term,
+  Campaign__c:this.campaign.Id
 }
-
-catc
+console.log('adRecord');
+console.log(JSON.stringify(adRecord));
+await createAd({
+  singleAd:adRecord
+})
+.then(adId => {
+  console.log('AD ID : '+ adId);
+  this.advertiseId=adId;
+})
+.catch(err=>{
+  console.log('createAd : err '+ err);
+});
+this.singleLead.Ad__c=this.advertiseId;
+ }   // connected callback end.....
+}
