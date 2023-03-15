@@ -3,6 +3,10 @@ import { api, LightningElement } from 'lwc';
 export default class CalendlyLWC extends LightningElement {
 
     @api calendlyLink;
+    @api leadId;
+    @api leadName;
+    @api leadEmail;
+
 
     connectedCallback(){
         console.log('this.calendlyLink');
@@ -10,6 +14,9 @@ export default class CalendlyLWC extends LightningElement {
 
         this.calendlyLink=this.calendlyLink.replaceAll('%2F','/').replaceAll('%3A',':');
         console.log(this.calendlyLink);
+        let name = '?name=' + this.leadId+' '+this.leadName;
+        let email= '&email='+this.leadEmail;
+        this.calendlyLink+=name+email;
 
 
 
