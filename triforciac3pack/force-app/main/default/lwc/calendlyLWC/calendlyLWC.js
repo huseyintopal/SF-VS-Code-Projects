@@ -17,6 +17,7 @@ export default class CalendlyLWC extends LightningElement {
         let name = '?name=' + this.leadId+' '+this.leadName;
         let email= '&email='+this.leadEmail;
         this.calendlyLink+=name+email;
+        console.log(this.calendlyLink);
 
 
 
