@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "9a5e02d8-b4e0-4029-8347-b6c135d96e3e",
+  "appPageId" : "774c8957-3ef6-48fc-a27c-b903ea9f4899",
+  "configurationTags" : [ ],
+  "id" : "e670d2c7-2aa4-4bf5-bc9e-b8e1b20d6b72",
+  "label" : "Info Registration Form LWC UTM_Part",
+  "pageAccess" : "Public",
+  "routeType" : "custom-info-registration-form-lwc-utm-part",
+  "type" : "route",
+  "urlPrefix" : "info-registration-form-lwc-utm-part"
+}

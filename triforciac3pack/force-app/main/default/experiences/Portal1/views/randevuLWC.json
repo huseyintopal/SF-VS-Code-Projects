@@ -1,0 +1,68 @@
+{
+  "appPageId" : "774c8957-3ef6-48fc-a27c-b903ea9f4899",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "fe02df4e-2667-4efc-9bc4-52db1960ce94",
+  "label" : "Randevu LWC",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3c2fc13c-606c-4a93-aa3a-f6c84da60f3f",
+          "columns" : [ {
+            "UUID" : "0f34684a-5b6a-4f77-8f94-f1e086de0c38",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3c2fc13c-606c-4a93-aa3a-f6c84da60f3f",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:calendlyLWC",
+          "id" : "1d599b52-9698-47e7-93fc-96b7ebb7066c",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "0f34684a-5b6a-4f77-8f94-f1e086de0c38",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9b872627-dcdf-4dbc-b660-8407d8c549ed",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Randevu LWC"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "bbb46559-6304-4a25-94d3-e1e0cf399a5e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "65ca66f9-fc93-44b7-aaca-1a709ed3db88",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-randevu-lwc"
+}

@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "5c873527-3eb4-4f60-86e9-a2144c0869ec",
+  "appPageId" : "774c8957-3ef6-48fc-a27c-b903ea9f4899",
+  "configurationTags" : [ ],
+  "id" : "18dff803-1bc8-4ac8-af44-54d7b8337f97",
+  "label" : "Info Registration LWC1",
+  "pageAccess" : "Public",
+  "routeType" : "custom-info-registration-lwc1",
+  "type" : "route",
+  "urlPrefix" : "info-registration-lwc1"
+}

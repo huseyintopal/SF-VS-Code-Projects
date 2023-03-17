@@ -1,0 +1,68 @@
+{
+  "appPageId" : "774c8957-3ef6-48fc-a27c-b903ea9f4899",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "9a5e02d8-b4e0-4029-8347-b6c135d96e3e",
+  "label" : "Info Registration Form LWC UTM_Part",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "5826f59c-d06c-44ba-888c-34bb04f28c4e",
+          "columns" : [ {
+            "UUID" : "8a77f18a-6d56-4370-981f-ab70d09529be",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "5826f59c-d06c-44ba-888c-34bb04f28c4e",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:leadRegistrationUTMpart",
+          "id" : "c33c6904-8e2a-4e00-ba77-3ef8e244ad14",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8a77f18a-6d56-4370-981f-ab70d09529be",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c3322faf-8dd7-4849-89a2-326441721973",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Info Registration Form LWC UTM_Part"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "70820731-940c-4d87-a7af-e7cf561976fb",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2e4b444c-77a4-4612-8fd7-d606cad06ec4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-info-registration-form-lwc-utm-part"
+}

@@ -6,7 +6,7 @@
     }
   ],
   "name": "triforciac3pack",
-  "namespace": "",
+  "namespace": "CWHT5",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "56.0"
 }

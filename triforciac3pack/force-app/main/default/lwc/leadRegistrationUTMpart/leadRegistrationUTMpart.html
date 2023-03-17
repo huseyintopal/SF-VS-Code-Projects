@@ -31,7 +31,6 @@
       placeholder="Select Progress"
       options={options}
       onchange={handleChange} ></lightning-combobox>
-
           <div class="slds-var-m-top_medium">
               <lightning-button variant="brand" type="submit" label="Save" onclick={clickhandler}>
               </lightning-button>
@@ -45,7 +44,7 @@
   <lightning-card  variant="Narrow"  title="Thank you" icon-name="standard:account">
     <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
     <p class="slds-p-horizontal_small">Thank you for regitration. One of our Representative will contact with you as soon as possible</p>
-    <p slot="footer"></p>
+    <p slot="footer">Card Footer</p>
   </lightning-card>
 </template>
 <template if:true={loading}>

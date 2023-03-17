@@ -1,6 +1,5 @@
 Public with sharing class GuestUserController {
-    public GuestUserController() {
-    }
+ 
     @AuraEnabled
     public static string createLead(Lead singleLead, String infoDate){
         // 2023-03-01T20:26:00.000Z

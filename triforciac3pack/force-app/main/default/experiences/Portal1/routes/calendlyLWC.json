@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "fe02df4e-2667-4efc-9bc4-52db1960ce94",
+  "appPageId" : "774c8957-3ef6-48fc-a27c-b903ea9f4899",
+  "configurationTags" : [ ],
+  "id" : "8a10e114-c1a2-4f78-80d0-793bd8f4dfcd",
+  "label" : "Calendly LWC",
+  "pageAccess" : "Public",
+  "routeType" : "custom-randevu-lwc",
+  "type" : "route",
+  "urlPrefix" : "randevu-lwc"
+}
