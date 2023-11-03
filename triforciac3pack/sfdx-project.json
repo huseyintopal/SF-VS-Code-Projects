@@ -2,11 +2,26 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "triforciac3pack",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "versionDescription": "Your Package Descripton"
+    },
+    {
+      "path": "force-app",
+      "package": "CruiseNYachtPack",
+      "versionName": "ver 2.1",
+      "versionNumber": "2.1.1.0",
+      "ancestorVersion": "2.1.0.0",
+      "default": false
     }
   ],
   "name": "triforciac3pack",
   "namespace": "CWHT5",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "56.0"
+  "sourceApiVersion": "56.0",
+  "packageAliases": {
+    "triforciac3pack": "0Ho8Y000000GmbCSAS"
+  }
 }

@@ -7,14 +7,7 @@
 		<members>ZoomWebServiceTest</members>
 		<name>ApexClass</name>
 	</types>
-	<types>
-		<members>*</members>
-		<name>AuthProvider</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ConnectedApp</name>
-	</types>
+
 	<types>
 		<members>*</members>
 		<name>ContentAsset</name>
@@ -62,10 +55,7 @@
 		<members>*</members>
 		<name>CustomTab</name>
 	</types>
-	<types>
-		<members>*</members>
-		<name>ExperienceBundle</name>
-	</types>
+
 	<types>
 		<members>Interview_Mail_Trigger</members>
 		<members>Lead_Info_From</members>
@@ -96,25 +86,8 @@
 	</types>
 	<types>
 		<members>zoom</members>
-		<name>NamedCredential</name>
 	</types>
-	<types>
-		<members>Portal Profile</members>
-		<name>Profile</name>
-	</types>
-	<types>
-		<members>Ad__c.portaluser_share</members>
-		<members>Campaign.portal_user2</members>
-		<members>Course__c.Portal_Profile_Share</members>
-		<members>Lead.lead_portal_sharing_rule</members>
-		<name>SharingGuestRule</name>
-	</types>
-	<types>
-		<members>Ad__c</members>
-		<members>Course__c</members>
-		<members>Interview__c</members>
-		<members>zoomlog__c</members>
-		<name>SharingRules</name>
-	</types>
+
+
 	<version>55.0</version>
 </Package>
